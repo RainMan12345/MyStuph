@@ -1,16 +1,10 @@
-def user_input():
-    lower_bound = input("Enter lower bound: ")
-    upper_bound = input("Enter upper bound: ")
-    return x_axis(int(lower_bound), int(upper_bound))
-
 def x_axis(lower_bound, upper_bound):
-    print_amount = upper_bound - lower_bound
+    domain_length = upper_bound - lower_bound
     i = 0
-    dash = "-"
     axis = ""
-    while (i<70 and i<print_amount):
-        axis+=dash
+    while (i<70 and i<domain_length):
+        axis+="-"
         i+=1
-    print(axis)
+    return axis
 
-user_input()
+print(x_axis(-3,9))
