@@ -5,8 +5,6 @@ y_axis = """
 |
 |
 """
-x_axis = "___________"
+x_axis = "---------------"
 
-print(y_axis)
-print(x_axis)
-
+print(y_axis + x_axis)
