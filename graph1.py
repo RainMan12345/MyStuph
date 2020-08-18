@@ -1,26 +1,42 @@
-def x_axis(domain):
-    x_domain = []
-    i = 0
-    x_domain.append('|')
-    while i<domain:
-        x_domain.append(' ')
-        i+=1
-    return x_domain
+def row(x_max):
+    x = ['|']
 
-def y_axis(x_value, y_value):
-    x = x_axis(x_value)
-    y = []
     i = 0
-    while i<y_value:
-        y.append(x)
-        i+=1
+
+    while i<x_max:
+        x.append(' ')
+        i += 1
+    return x
+
+def rows(x_max, y_max):
+    y = []
+
+    i = 0
+    while i < y_max:
+        y.append(row(x_max))
+        i += 1
+
+    y.append(row(x_max))
     return y
 
 def plotter(x_list,y_list):
-    grid = y_axis(5,5)
+    grid = rows(10,10)
     i = 0
-    while i<(len(x_list)-1):
-        grid[len(grid)-1-y_list[i]][x_list[i]+1] = '.'
+
+    while i<(len(x_list)):
+        i_x = x_list[i]
+        i_y = (len(grid) - 1) - y_list[i]
+        grid[i_y][i_x] = '.'
         i+=1
-    return grid
-print(plotter([1,2,3],[1,2,3]))
+
+    return draw(grid)
+
+def draw(grid):
+    string = ""
+    for i in grid[:]:
+        for j in i:
+            string+=j
+        string+='\n'
+    return string
+
+print(plotter([1,2,3,4,5,6,7,8,9],[1,2,3,4,5,5,4,3,2]))
