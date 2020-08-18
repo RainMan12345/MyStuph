@@ -1,37 +1,19 @@
-def x_axis(lower_bound, upper_bound):
-    domain_length = upper_bound - lower_bound
+def x_axis(domain):
+    x_domain = []
     i = 0
-    axis = ""
-    while (i<70 and i<domain_length):
-        axis+="-"
+    x_domain.append('|')
+    while i<domain:
+        x_domain.append(' ')
         i+=1
-    return axis
+    return x_domain
 
-def y_axis(lower_bound, upper_bound):
-    domain_length = upper_bound - lower_bound
+def y_axis(x_value, y_value):
+    x = x_axis(x_value)
+    y = []
     i = 0
-    axis = ""
-    while (i<70 and i<domain_length):
-        axis+="|\n"
+    while i<y_value:
+        y.append(x)
         i+=1
-    return axis
+    return y
 
-def replacer(line_number, space, y_list):
-    j = 0
-    replace_value = ""
-    while j<line_number:
-        replace_value+="|\n"
-        j+=1
-    return y_list.replace(replace_value, replace_value+ "|" + space + "\n", 1)
-
-def spaces(line_number, spaces):
-    y_list = y_axis(1,9)
-    i=0
-    space = ""
-    while (i<spaces-1):
-        space+=" "
-        i+=1
-    space+="."
-    return replacer(line_number, space, y_list) 
-
-print(spaces(3, 5) + "+" + x_axis(-1, 10))
+print(y_axis(5,5))
