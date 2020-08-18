@@ -20,7 +20,7 @@ def plotter(x_list,y_list):
     grid = y_axis(5,5)
     i = 0
     while i<(len(x_list)-1):
-        grid[len(grid) - y_list[i]][x_list[i]] = '.'
+        grid[len(grid)-1-y_list[i]][x_list[i]+1] = '.'
         i+=1
-        return grid
-print(plotter([1,2,3],[1,2,4]))
+    return grid
+print(plotter([1,2,3],[1,2,3]))
